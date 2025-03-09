@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Категории - Магазин товаров</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="sidebar"></div>
+
+<div class="content">
+    <!-- Вкладка "Контакты" -->
+    <div class="tab-pane fade" id="contacts">
+        <h1 class="text-center">Контакты</h1>
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <div class="card p-4"> <!-- Обернули форму в карточку с отступами -->
+                    <form class="row gy-2 gx-3">
+                        <div class="col-12">
+                            <label for="name">Имя</label>
+                            <input type="text" class="form-control" id="name" placeholder="Введите ваше имя">
+                        </div>
+                        <div class="col-12">
+                            <label for="email">Почта</label>
+                            <div class="input-group">
+                                <div class="input-group-text">@</div>
+                                <input type="email" class="form-control" id="email"
+                                       placeholder="Введите вашу почту">
+                            </div>
+                            <div class="col-12">
+                                <label for="message">Сообщение</label>
+                                <textarea class="form-control" id="message" rows="3"
+                                          placeholder="Введите ваше сообщение"></textarea>
+                            </div>
+                            <div class="col-12 mt-2 d-flex justify-content-start">
+                                <button type="submit" class="btn btn-primary btn-sm">Отправить</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5 class="mt-4">Наши контакты</h5>
+                <p class="small-text" style="padding-right: 30px;"> <!-- Добавлен правый отступ -->
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                    id est laborum.
+                </p>
+                <p class="small-text" style="padding-right: 30px;">
+                    While these feedback styles cannot be styled with CSS, you can still customize the text through
+                    JavaScript.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    fetch('sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+        });
+</script>
+</body>
+</html>

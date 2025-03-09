@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Магазин товаров</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Вставка боковой панели -->
+<div id="sidebar"></div>
+
+<div class="content">
+    <!-- Вкладка "Главная" -->
+    <div class="tab-pane fade show active" id="home">
+        <div class="d-flex justify-content-center align-items-center full-height">
+            <div class="text-center">
+                <h1>Главная</h1>
+                <h6>Вы находитесь на сайте, предназначенном для продажи товаров.</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                    <h5 class="card-header">Товар 1</h5>
+                    <p class="price">$100</p>
+                    <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                        access.</p>
+                    <button type="button" class="btn btn-outline-primary">Купить</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                    <h5 class="card-header">Товар 1</h5>
+                    <p class="price">$100</p>
+                    <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                        access.</p>
+                    <button type="button" class="btn btn-outline-primary">Купить</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                    <h5 class="card-header">Товар 1</h5>
+                    <p class="price">$100</p>
+                    <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                        access.</p>
+                    <button type="button" class="btn btn-outline-primary">Купить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+            fetch('sidebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar').innerHTML = data;
+                });
+        </script>
+    </div>
+</body>
+</html>

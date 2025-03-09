@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - Магазин товаров</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="sidebar"></div>
+
+<div class="content">
+    <!-- Вкладка "Каталог" -->
+    <div class="tab-pane fade" id="catalog">
+        <h1 class="text-center">Каталог</h1>
+        <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+            <div class="col-md-6 mb-2 mt-2 custom-padding-left">
+                <div class="card h-100 position-relative" style="height: 400px; width: 400px;">
+                    <img src="https://via.placeholder.com/300" class="card-img-top"
+                         style="height: 180px; width: 100%; object-fit: cover;" alt="">
+                    <div class="text-center position-absolute top-50 start-50 translate-middle text-white">
+                        <p class="mb-5">Thumbnail</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between mt-auto">
+                            <div>
+                                <button type="button" class="btn btn-outline-dark">View</button>
+                                <button type="button" class="btn btn-outline-dark">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-2 mt-2 custom-padding-right">
+                <div class="card h-100 position-relative" style="height: 400px; width: 400px;">
+                    <img src="https://via.placeholder.com/300" class="card-img-top"
+                         style="height: 180px; width: 100%; object-fit: cover;" alt="">
+                    <div class="text-center position-absolute top-50 start-50 translate-middle text-white">
+                        <p class="mb-5">Thumbnail</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between mt-auto">
+                            <div>
+                                <button type="button" class="btn btn-outline-dark">View</button>
+                                <button type="button" class="btn btn-outline-dark">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-2 mt-5 custom-padding-left">
+                <div class="card h-100 position-relative" style="height: 400px; width: 400px;">
+                    <img src="https://via.placeholder.com/300" class="card-img-top"
+                         style="height: 180px; width: 100%; object-fit: cover;" alt="">
+                    <div class="text-center position-absolute top-50 start-50 translate-middle text-white">
+                        <p class="mb-5">Thumbnail</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between mt-auto">
+                            <div>
+                                <button type="button" class="btn btn-outline-dark">View</button>
+                                <button type="button" class="btn btn-outline-dark">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-2 mt-5 custom-padding-right">
+                <div class="card h-100 position-relative" style="height: 400px; width: 400px;">
+                    <img src="https://via.placeholder.com/300" class="card-img-top"
+                         style="height: 180px; width: 100%; object-fit: cover;" alt="">
+                    <div class="text-center position-absolute top-50 start-50 translate-middle text-white">
+                        <p class="mb-5">Thumbnail</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between mt-auto">
+                            <div>
+                                <button type="button" class="btn btn-outline-dark">View</button>
+                                <button type="button" class="btn btn-outline-dark">Edit</button>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    fetch('sidebar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+        });
+</script>
+</body>
+</html>
