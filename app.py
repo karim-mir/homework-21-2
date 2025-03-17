@@ -1,35 +1,29 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
-import os
+import http.server
+import socketserver
 
-hostName = "localhost"
-serverPort = 8080
+PORT = 8080  # Порт, на котором будет запущен сервер
 
-class MyServer(BaseHTTPRequestHandler):
 
+class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        # Путь к файлу index.html
-        file_path = os.path.join(os.getcwd(), "index.html")
+        # Логируем запрашиваемый путь
+        print(f"Запрос на: {self.path}")
 
-        # Проверяем, существует ли файл
-        if os.path.exists(file_path):
-            with open(file_path, 'r', encoding='utf-8') as file:
-                page_content = file.read()  # Читаем содержимое HTML-файла
-        else:
-            page_content = "<html><body><h1>404 Not Found</h1></body></html>"
-
-        self.send_response(200)  # Отправляем статус 200 OK
-        self.send_header("Content-type", "text/html")  # Устанавливаем правильный тип содержимого
+        # Устанавливаем заголовок ответа
+        self.send_response(200)  # Успешный ответ
+        self.send_header('Content-type', 'text/html; charset=utf-8')
         self.end_headers()
-        self.wfile.write(bytes(page_content, "utf-8"))  # Отправляем содержимое HTML-страницы
 
-if __name__ == "__main__":
-    webServer = HTTPServer((hostName, serverPort), MyServer)
-    print("Server started at http://%s:%s" % (hostName, serverPort))
+        # Читаем содержимое из файла contact.html
+        try:
+            with open('contact.html', 'r', encoding='utf-8') as file:
+                html_content = file.read()
+            self.wfile.write(html_content.encode('utf-8'))  # Отправляем HTML-код
+        except FileNotFoundError:
+            self.send_error(404, "File not found")  # Обработка 404 ошибки
 
-    try:
-        webServer.serve_forever()
-    except KeyboardInterrupt:
-        pass
 
-    webServer.server_close()
-    print("Server stopped.")
+# Запуск сервера
+with socketserver.TCPServer(("", PORT), MyRequestHandler) as httpd:
+    print(f"Сервер запущен на http://localhost:{PORT}")
+    httpd.serve_forever()
