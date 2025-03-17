@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+}
+
+.nav-sidebar {
+    width: 200px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.nav-sidebar .nav-item {
+    text-align: left;
+}
+
+.nav-sidebar .nav-link {
+    color: white;
+}
+
+.nav-sidebar .nav-link:hover {
+    background-color: #444;
+}
+
+.menu-title {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+}
+
+.menu-title i {
+    margin-right: 10px; /* Отступ для иконки */
+}
+
+.card-img-top {
+    background-color: grey; /* Серый фон */
+    color: white; /* Белый текст */
+    height: 60%; /* Занимает 60% высоты карточки */
+    display: flex; /* Используем Flexbox для центрирования текста */
+    justify-content: center; /* Центр по горизонтали */
+    align-items: center; /* Центр по вертикали */
+}
+
+.price {
+    font-size: 1.5rem; /* Увеличиваем шрифт цены */
+    color: #28a745; /* Цвет текста для цены */
+}
+
+.custom-padding-left {
+    padding-left: 120px;
+}
+
+.custom-padding-right {
+    padding-left: 72px;
+}

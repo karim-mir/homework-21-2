@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин товаров</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            height: 100vh;
+        }
+        .nav-sidebar {
+            width: 200px;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .nav-sidebar .nav-link {
+            color: white;
+        }
+        .nav-sidebar .nav-link:hover {
+            background-color: #444;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar"></div>
+    <div class="content" id="content"></div>
+
+    <script>
+        // Загружаем боковое меню
+        fetch('sidebar.html').then(response => response.text()).then(data => {
+            document.getElementById('sidebar').innerHTML = data;
+
+            // Обработка переходов по вкладкам
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault(); // Останавливаем обычное поведение ссылки
+                    let page = link.getAttribute('href'); // Получаем ссылку на файл
+                    loadPage(page); // Загружаем страницу
+                });
+            });
+        });
+
+        // Функция для загрузки содержимого страницы
+        function loadPage(page) {
+            fetch(page).then(response => response.text()).then(data => {
+                document.getElementById('content').innerHTML = data;
+            });
+        }
+
+        // Загружаем контент главной страницы по умолчанию
+        loadPage('home.html');
+    </script>
+</body>
+</html>
