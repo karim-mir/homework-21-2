@@ -11,14 +11,14 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
 
         # Устанавливаем заголовок ответа
         self.send_response(200)  # Успешный ответ
-        self.send_header('Content-type', 'text/html; charset=utf-8')
+        self.send_header("Content-type", "text/html; charset=utf-8")
         self.end_headers()
 
         # Читаем содержимое из файла contact.html
         try:
-            with open('contact.html', 'r', encoding='utf-8') as file:
+            with open("contact.html", "r", encoding="utf-8") as file:
                 html_content = file.read()
-            self.wfile.write(html_content.encode('utf-8'))  # Отправляем HTML-код
+            self.wfile.write(html_content.encode("utf-8"))  # Отправляем HTML-код
         except FileNotFoundError:
             self.send_error(404, "File not found")  # Обработка 404 ошибки
 
