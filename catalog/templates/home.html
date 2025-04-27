@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Магазин товаров{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav-sidebar">
+    <div class="menu-title">
+        <i class="fas fa-bars"></i> Меню
+    </div>
+    <div class="nav flex-column">
+        <a class="nav-link active" href="#">Главная</a>
+        <a class="nav-link" href="#">Каталог</a>
+        <a class="nav-link" href="#">Категории</a>
+        <a class="nav-link" href="#">Контакты</a>
+    </div>
+    <div class="dropdown mt-auto">
+        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Пользователь
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Профиль</a>
+            <a class="dropdown-item" href="#">Выход</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>Главная</h1>
+        <h6>Вы находитесь на сайте, предназначенном для продажи товаров.</h6>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-4">
+            <div class="card text-center" style="height: 300px; display: flex; flex-direction: column; justify-content: space-between;">
+                <h5 class="card-header">Товар 1</h5>
+                <p class="price">$100</p>
+                <p class="card-text">10 users included, 2 GB of storage, Email support, Help center access.</p>
+                <button type="button" class="btn btn-outline-primary">Купить</button>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-center" style="height: 300px; display: flex; flex-direction: column; justify-content: space-between;">
+                <h5 class="card-header">Товар 2</h5>
+                <p class="price">$150</p>
+                <p class="card-text">15 users included, 5 GB of storage, Email support, Help center access.</p>
+                <button type="button" class="btn btn-outline-primary">Купить</button>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-center" style="height: 300px; display: flex; flex-direction: column; justify-content: space-between;">
+                <h5 class="card-header">Товар 3</h5>
+                <p class="price">$200</p>
+                <p class="card-text">20 users included, 10 GB of storage, Email support, Help center access.</p>
+                <button type="button" class="btn btn-outline-primary">Купить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
