@@ -1,0 +1,65 @@
+[
+{
+  "model": "catalog.product",
+  "pk": 7,
+  "fields": {
+    "name": "Тестовый продукт 1",
+    "description": "",
+    "photo": "",
+    "category": null,
+    "price": "100.00",
+    "created_at": null,
+    "updated_at": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 8,
+  "fields": {
+    "name": "Тестовый продукт 2",
+    "description": "",
+    "photo": "",
+    "category": null,
+    "price": "200.00",
+    "created_at": null,
+    "updated_at": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 9,
+  "fields": {
+    "name": "Тестовый продукт 3",
+    "description": "",
+    "photo": "",
+    "category": null,
+    "price": "300.00",
+    "created_at": null,
+    "updated_at": null
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 1,
+  "fields": {
+    "name": "Электроника",
+    "description": null
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 2,
+  "fields": {
+    "name": "Одежда",
+    "description": null
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Книги",
+    "description": null
+  }
+}
+]
