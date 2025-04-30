@@ -15,6 +15,7 @@
                     <h5 class="card-header">{{ product.category }}</h5>
                     <p class="price">{{ product.price }}</p>
                     <p class="card-text">{{ product.name }}</p>
+                    <p class="card-text">{{ product.description|truncatechars:100 }}</p>
                     <a class="btn btn-primary" href="{% url 'catalog:product_detail' product.pk %}" role="button">Купить</a>
                 </div>
             </div>
