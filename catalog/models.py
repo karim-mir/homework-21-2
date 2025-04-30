@@ -46,7 +46,7 @@ class Product(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Категория",
         help_text="Введите категорию продукта",
-        related_name="products"
+        related_name="products",
     )
 
     price = models.DecimalField(
