@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load my_tags %}
+
 {% block content %}
 <div class="container mt-5">
     <div class="text-center">
@@ -14,7 +15,7 @@
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-header">{{ blog.title }}</h5>
                     <p class="card-text">{{ blog.content|truncatechars:100 }}</p>
-                    <p class="card-text">{{ blog.views_count }}</p>
+                    <p class="card-text">Количество просмотров: {{ blog.views_count }}</p>
                     <div class="mt-auto d-flex justify-content-between">
                         <div>
                             <a class="btn btn-primary me-2" href="{% url 'blog:blog_detail' blog.pk %}" role="button">Посмотреть</a>
@@ -25,6 +26,11 @@
                 </div>
             </div>
         </div>
+        {% empty %}
+            <!-- Если нет блогов, отображаем сообщение -->
+            <div class="col-12 text-center">
+                <p>Нет опубликованных статей.</p>
+            </div>
         {% endfor %}
     </div>
 </div>

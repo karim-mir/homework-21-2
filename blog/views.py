@@ -8,12 +8,21 @@ from django.urls import reverse_lazy, reverse
 class BlogListView(ListView):
     model = Blog
     template_name = "blog/blog_list.html"
-    ontext_object_name = 'blogs'
+    context_object_name = 'blogs'
+
+    def get_queryset(self):
+        return Blog.objects.filter(is_published=True)
 
 
 class BlogDetailView(DetailView):
     model = Blog
     template_name = "blog/blog_detail.html"
+
+    def get_object(self, queryset=None):
+        blog = super().get_object(queryset)
+        blog.views_count += 1
+        blog.save()
+        return blog
 
 
 class BlogCreateView(CreateView):
