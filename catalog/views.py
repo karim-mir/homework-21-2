@@ -10,19 +10,10 @@ class ProductListView(ListView):
     template_name = "catalog/catalog_list.html"
     context_object_name = "products"
 
-    def get_queryset(self):
-        return Product.objects.filter(is_published=True)
-
 
 class ProductDetailView(DetailView):
     model = Product
     template_name = "catalog/catalog_detail.html"
-
-    def get_object(self, queryset=None):
-        self.object = super().get_object(queryset)
-        self.object.views_counter += 1
-        self.object.save()
-        return self.object
 
 
 class ProductCreateView(CreateView):
