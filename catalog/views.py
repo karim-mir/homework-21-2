@@ -1,7 +1,7 @@
 from catalog.models import Product
 from django.shortcuts import render, get_object_or_404
 
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.urls import reverse_lazy, reverse
 
 
@@ -39,5 +39,5 @@ class ProductDeleteView(DeleteView):
 
 
 
-def contact(request):
-    return render(request, "contact.html")
+class ContactView(TemplateView):
+    template_name = "catalog/contact.html"
