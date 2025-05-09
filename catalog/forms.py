@@ -11,8 +11,9 @@ FORBIDDEN_WORDS = [
     "бесплатно",
     "обман",
     "полиция",
-    "радар"
+    "радар",
 ]
+
 
 class StyleFormMixin:
     def __init__(self, *args, **kwargs):

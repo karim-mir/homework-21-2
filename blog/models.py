@@ -24,13 +24,13 @@ class Blog(models.Model):
     is_published = models.BooleanField(
         default=True,
         verbose_name="Опубликовано",
-        help_text="Отметьте, если пост опубликован"
+        help_text="Отметьте, если пост опубликован",
     )
 
     views_count = models.PositiveIntegerField(
         default=0,
         verbose_name="Количество просмотров",
-        help_text="Количество раз, когда пост был просмотрен"
+        help_text="Количество раз, когда пост был просмотрен",
     )
 
     def __str__(self):

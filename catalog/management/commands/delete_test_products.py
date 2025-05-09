@@ -7,9 +7,15 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Удаляем все тестовые продукты
-        deleted_count, _ = Product.objects.filter(name__startswith="Тестовый продукт").delete()
+        deleted_count, _ = Product.objects.filter(
+            name__startswith="Тестовый продукт"
+        ).delete()
 
         if deleted_count:
-            self.stdout.write(self.style.SUCCESS(f"Удалено {deleted_count} тестовых продуктов."))
+            self.stdout.write(
+                self.style.SUCCESS(f"Удалено {deleted_count} тестовых продуктов.")
+            )
         else:
-            self.stdout.write(self.style.WARNING("Нет тестовых продуктов для удаления."))
+            self.stdout.write(
+                self.style.WARNING("Нет тестовых продуктов для удаления.")
+            )

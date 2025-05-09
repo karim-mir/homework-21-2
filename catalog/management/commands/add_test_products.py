@@ -1,5 +1,8 @@
 from django.core.management.base import BaseCommand
-from catalog.models import Product, Category  # Импортируйте вашу модель продукта и категорию
+from catalog.models import (
+    Product,
+    Category,
+)  # Импортируйте вашу модель продукта и категорию
 from django.core.files.base import ContentFile
 
 
@@ -21,21 +24,21 @@ class Command(BaseCommand):
                 "description": "Описание тестового продукта 1",
                 "price": 100.00,
                 "category": category,
-                "photo": None  # Здесь можно указать путь к изображению, если оно есть
+                "photo": None,  # Здесь можно указать путь к изображению, если оно есть
             },
             {
                 "name": "Тестовый продукт 2",
                 "description": "Описание тестового продукта 2",
                 "price": 200.00,
                 "category": category,
-                "photo": None
+                "photo": None,
             },
             {
                 "name": "Тестовый продукт 3",
                 "description": "Описание тестового продукта 3",
                 "price": 300.00,
                 "category": category,
-                "photo": None
+                "photo": None,
             },
         ]
 
