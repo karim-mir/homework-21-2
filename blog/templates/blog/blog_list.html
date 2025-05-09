@@ -2,9 +2,14 @@
 {% load my_tags %}
 
 {% block content %}
+
+<header data-bs-theme="dark">
+    {% include 'catalog/includes/inc_menu.html' %}
+</header>
+
 <div class="container mt-5">
     <div class="text-center">
-        <h1>Главная</h1>
+        <h1>Блоги</h1>
         <h6>Вы находитесь на сайте, предназначенном для публикации блогов.</h6>
     </div>
     <div class="row mt-3">
