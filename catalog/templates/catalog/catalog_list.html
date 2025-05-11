@@ -16,13 +16,16 @@
                     <p class="price">{{ product.price }}</p>
                     <p class="card-text">{{ product.name }}</p>
                     <p class="card-text">{{ product.description|truncatechars:100 }}</p>
+                    {% if user.is_authenticated %}
                     <div class="mt-auto d-flex justify-content-between"> <!-- Используем justify-content-between для распределения кнопок -->
                         <div> <!-- Контейнер для кнопок "Купить" и "Редактировать" -->
                             <a class="btn btn-primary me-2" href="{% url 'catalog:catalog_detail' product.pk %}" role="button">Купить</a>
                             <a class="btn btn-primary" href="{% url 'catalog:catalog_update' product.pk %}" role="button">Редактировать</a>
                         </div>
+                        {% csrf_token %}
                         <a class="btn btn-danger" href="{% url 'catalog:catalog_delete' product.pk %}" role="button">Удалить</a> <!-- Кнопка "Удалить" справа -->
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -30,8 +33,10 @@
     </div>
 </div>
 
+{% if user.is_authenticated %}
 <div class="fixed-bottom d-flex justify-content-center mb-3">
     <a class="btn btn-primary btn-lg shadow" href="{% url 'catalog:catalog_create' %}" role="button">Создать товар</a>
 </div>
+{% endif %}
 
 {% endblock %}
