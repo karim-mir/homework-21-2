@@ -18,7 +18,7 @@ EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 
 class UserCreateView(CreateView):
     model = User
-    template_name = "catalog/product_form.html"
+    template_name = "users/user_form.html"
     form_class = UserRegisterForm
     success_url = reverse_lazy("users:login")
 
