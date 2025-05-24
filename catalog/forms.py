@@ -34,10 +34,12 @@ class ProductForm(StyleFormMixin, ModelForm):
         cleaned_data = super().clean()
         name = cleaned_data.get("name")
         description = cleaned_data.get("description")
+
         if name:
             self.validate_forbidden_words(name)
         if description:
             self.validate_forbidden_words(description)
+
         return cleaned_data
 
     def validate_forbidden_words(self, value):
@@ -54,6 +56,31 @@ class ProductForm(StyleFormMixin, ModelForm):
             raise forms.ValidationError("Цена не может быть равна нулю.")
 
         return price
+
+
+class ProductModeratorForm(StyleFormMixin, ModelForm):
+    class Meta:
+        model = Product
+        fields = "__all__"
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        # Валидация запрещенных слов для модераторов
+        name = cleaned_data.get("name")
+        description = cleaned_data.get("description")
+
+        if name:
+            self.validate_forbidden_words(name)
+        if description:
+            self.validate_forbidden_words(description)
+
+        return cleaned_data
+
+    def validate_forbidden_words(self, value):
+        for word in FORBIDDEN_WORDS:
+            if word.lower() in value.lower():
+                raise forms.ValidationError(f"Слово '{word}' запрещено использовать.")
 
 
 class ContactForm(forms.Form):

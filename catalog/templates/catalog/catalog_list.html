@@ -1,5 +1,6 @@
 {% extends 'catalog/home.html' %}
 {% load my_tags %}
+
 {% block base_content %}
 <div class="container mt-5">
     <div class="text-center">
@@ -20,14 +21,22 @@
                     <div class="mt-auto d-flex justify-content-between"> <!-- Используем justify-content-between для распределения кнопок -->
                         <div> <!-- Контейнер для кнопок "Купить" и "Редактировать" -->
                             <a class="btn btn-primary me-2" href="{% url 'catalog:catalog_detail' product.pk %}" role="button">Купить</a>
+                            {% if perms.catalog.can_unpublish_product or user == product.owner %}
                             <a class="btn btn-primary" href="{% url 'catalog:catalog_update' product.pk %}" role="button">Редактировать</a>
+                            {% endif %}
                         </div>
                         {% csrf_token %}
+                        {% if perms.catalog.can_unpublish_product or user == product.owner %}
                         <a class="btn btn-danger" href="{% url 'catalog:catalog_delete' product.pk %}" role="button">Удалить</a> <!-- Кнопка "Удалить" справа -->
+                        {% endif %}
                     </div>
                     {% endif %}
                 </div>
             </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <p>Нет доступных товаров.</p>
         </div>
         {% endfor %}
     </div>

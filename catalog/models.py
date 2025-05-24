@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import User
 
 
 class Category(models.Model):
@@ -24,6 +25,11 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    STATUS_CHOICES = [
+        ('draft', 'Черновик'),
+        ('published', 'Опубликован'),
+    ]
+
     name = models.CharField(
         max_length=50,
         verbose_name="Наименование",
@@ -59,6 +65,15 @@ class Product(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
 
+    # Поле для статуса публикации
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='draft',
+        verbose_name='Статус публикации',
+    )
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
     def __str__(self):
         return self.name
 
@@ -66,3 +81,9 @@ class Product(models.Model):
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
         ordering = ["category", "name", "price", "created_at"]
+
+        # Кастомные права
+        permissions = [
+            ("can_unpublish_product", "Can unpublish product"),
+            ("can_delete_product", "Can delete product"),
+        ]
