@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин товаров</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Подключение Font Awesome -->
+
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            height: 100vh;
+        }
+        .nav-sidebar {
+            width: 200px;
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .nav-sidebar .nav-item {
+            text-align: left;
+        }
+        .nav-sidebar .nav-link {
+            color: white;
+        }
+        .nav-sidebar .nav-link:hover {
+            background-color: #444;
+        }
+        .menu-title {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+        }
+        .menu-title i {
+            margin-right: 10px; /* Отступ для иконки */
+        }
+        .card-img-top {
+            background-color: grey; /* Серый фон */
+            color: white; /* Белый текст */
+            height: 60%; /* Занимает 60% высоты карточки */
+            display: flex; /* Используем Flexbox для центрирования текста */
+            justify-content: center; /* Центр по горизонтали */
+            align-items: center; /* Центр по вертикали */
+        }
+        .price {
+            font-size: 1.5rem; /* Увеличиваем шрифт цены */
+            color: #28a745; /* Цвет текста для цены */
+        }
+
+        .custom-padding-left {
+            padding-left: 120px;
+        }
+
+        .custom-padding-right {
+            padding-left: 72px;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="nav-sidebar">
+    <div class="menu-title">
+        <i class="fas fa-bars"></i> Меню
+    </div>
+    <div class="nav flex-column">
+        <a class="nav-link active" data-toggle="tab" href="#home">Главная</a>
+        <a class="nav-link" data-toggle="tab" href="#catalog">Каталог</a>
+        <a class="nav-link" data-toggle="tab" href="#categories">Категории</a>
+        <a class="nav-link" data-toggle="tab" href="#contacts">Контакты</a>
+    </div>
+    <div class="dropdown mt-auto">
+        <button class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Пользователь
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Профиль</a>
+            <a class="dropdown-item" href="#">Выход</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="tab-content mt-3">
+        <!-- Вкладка "Главная" -->
+        <div class="tab-pane fade show active" id="home">
+            <div class="d-flex justify-content-center align-items-center full-height">
+                <div class="text-center">
+                    <h1>Главная</h1>
+                    <h6>Вы находитесь на сайте, предназначенном для продажи товаров.</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                            <h5 class="card-header">Товар 1</h5>
+                            <p class="price">$100</p>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access.</p>
+                            <button type="button" class="btn btn-outline-primary">Купить</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                            <h5 class="card-header">Товар 1</h5>
+                            <p class="price">$100</p>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access.</p>
+                            <button type="button" class="btn btn-outline-primary">Купить</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                            <h5 class="card-header">Товар 1</h5>
+                            <p class="price">$100</p>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access.</p>
+                            <button type="button" class="btn btn-outline-primary">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка "Каталог" -->
+        <div class="tab-pane fade" id="catalog">
+            <h1 class="text-center">Каталог</h1>
+            <div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+                <div class="col-md-6 mb-2 mt-2 custom-padding-left">
+                    <div class="card h-100 position-relative" style="height: 400px; width: 400px;">
+                        <img src="https://via.placeholder.com/300" class="card-img-top"
+                             style="height: 180px; width: 100%; object-fit: cover;" alt="">
+                        <div class="text-center position-absolute top-50 start-50 translate-middle text-white">
+                            <p class="mb-5">Thumbnail</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between mt-auto">
+                                <div>
+                                    <button type="button" class="btn btn-outline-dark">View</button>
+                                    <button type="button" class="btn btn-outline-dark">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-2 mt-2 custom-padding-right">
+                    <div class="card h-100 position-relative" style="height: 400px; width: 400px;">
+                        <img src="https://via.placeholder.com/300" class="card-img-top"
+                             style="height: 180px; width: 100%; object-fit: cover;" alt="">
+                        <div class="text-center position-absolute top-50 start-50 translate-middle text-white">
+                            <p class="mb-5">Thumbnail</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between mt-auto">
+                                <div>
+                                    <button type="button" class="btn btn-outline-dark">View</button>
+                                    <button type="button" class="btn btn-outline-dark">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-2 mt-5 custom-padding-left">
+                    <div class="card h-100 position-relative" style="height: 400px; width: 400px;">
+                        <img src="https://via.placeholder.com/300" class="card-img-top"
+                             style="height: 180px; width: 100%; object-fit: cover;" alt="">
+                        <div class="text-center position-absolute top-50 start-50 translate-middle text-white">
+                            <p class="mb-5">Thumbnail</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between mt-auto">
+                                <div>
+                                    <button type="button" class="btn btn-outline-dark">View</button>
+                                    <button type="button" class="btn btn-outline-dark">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-2 mt-5 custom-padding-right">
+                    <div class="card h-100 position-relative" style="height: 400px; width: 400px;">
+                        <img src="https://via.placeholder.com/300" class="card-img-top"
+                             style="height: 180px; width: 100%; object-fit: cover;" alt="">
+                        <div class="text-center position-absolute top-50 start-50 translate-middle text-white">
+                            <p class="mb-5">Thumbnail</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between mt-auto">
+                                <div>
+                                    <button type="button" class="btn btn-outline-dark">View</button>
+                                    <button type="button" class="btn btn-outline-dark">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Вкладка "Категории" -->
+        <div class="tab-pane fade" id="categories">
+            <h1 class="text-center">Категория 1</h1>
+            <div class="row mb-4">
+                <div class="col-sm-4">
+                    <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                            <h5 class="card-header">Товар 1</h5>
+                            <p class="price">$100</p>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access.</p>
+                            <button type="button" class="btn btn-outline-primary">Купить</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                            <h5 class="card-header">Товар 1</h5>
+                            <p class="price">$100</p>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access.</p>
+                            <button type="button" class="btn btn-outline-primary">Купить</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                            <h5 class="card-header">Товар 1</h5>
+                            <p class="price">$100</p>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access.</p>
+                            <button type="button" class="btn btn-outline-primary">Купить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                            <h5 class="card-header">Товар 1</h5>
+                            <p class="price">$100</p>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access.</p>
+                            <button type="button" class="btn btn-outline-primary">Купить</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                            <h5 class="card-header">Товар 1</h5>
+                            <p class="price">$100</p>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access.</p>
+                            <button type="button" class="btn btn-outline-primary">Купить</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card text-center" style="height: 300px; display: flex; flex-direction: column;
+                                justify-content: space-between;">
+                            <h5 class="card-header">Товар 1</h5>
+                            <p class="price">$100</p>
+                            <p class="card-text">10 users included, 2 GB of storage, Email support, Help center
+                                access.</p>
+                            <button type="button" class="btn btn-outline-primary">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Вкладка "Контакты" -->
+        <div class="tab-pane fade" id="contacts">
+            <h1 class="text-center">Контакты</h1>
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <div class="card p-4"> <!-- Обернули форму в карточку с отступами -->
+                        <form class="row gy-2 gx-3">
+                            <div class="col-12">
+                                <label for="name">Имя</label>
+                                <input type="text" class="form-control" id="name" placeholder="Введите ваше имя">
+                            </div>
+                            <div class="col-12">
+                                <label for="email">Почта</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">@</div>
+                                    <input type="email" class="form-control" id="email"
+                                           placeholder="Введите вашу почту">
+                                </div>
+                                <div class="col-12">
+                                    <label for="message">Сообщение</label>
+                                    <textarea class="form-control" id="message" rows="3"
+                                              placeholder="Введите ваше сообщение"></textarea>
+                                </div>
+                                <div class="col-12 mt-2 d-flex justify-content-start">
+                                    <button type="submit" class="btn btn-primary btn-sm">Отправить</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="mt-4">Наши контакты</h5>
+                    <p class="small-text" style="padding-right: 30px;"> <!-- Добавлен правый отступ -->
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                        id est laborum.
+                    </p>
+                    <p class="small-text" style="padding-right: 30px;">
+                        While these feedback styles cannot be styled with CSS, you can still customize the text through
+                        JavaScript.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
