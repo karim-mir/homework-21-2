@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
+from django.forms import inlineformset_factory
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import (
     ListView,
@@ -11,8 +12,9 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy, reverse
 
-from catalog.models import Product
+from catalog.models import Product, Category
 from catalog.forms import ProductForm, ProductModeratorForm
+from catalog.services import get_products_from_cache, get_products_by_category
 
 
 class ProductListView(ListView):
@@ -24,6 +26,9 @@ class ProductListView(ListView):
 class ProductDetailView(LoginRequiredMixin, DetailView):
     model = Product
     template_name = "catalog/catalog_detail.html"
+
+    def get_queryset(self):
+        return get_products_from_cache()
 
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
@@ -61,6 +66,22 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
         if request.user != product.owner and not request.user.has_perm("catalog.can_delete_product"):
             raise PermissionDenied("У вас нет прав на удаление этого продукта.")
         return super().dispatch(request, *args, **kwargs)
+
+
+class ProductListByCategoryView(ListView):
+    model = Product
+    template_name = "catalog/catalog_list_by_category.html"
+    context_object_name = "products"
+
+    def get_queryset(self):
+        category_id = self.kwargs.get("category_id")
+        return get_products_by_category(category_id)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category = get_object_or_404(Category, id=self.kwargs.get("category_id"))
+        context["category"] = category
+        return context
 
 
 class ContactView(TemplateView):
